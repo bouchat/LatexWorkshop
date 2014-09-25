@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+\usepackage{etex}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{multirow, multicol}
+\usepackage{epsfig, subfigure, subfloat, graphicx}
+\usepackage{anysize, indentfirst, setspace}
+\usepackage{verbatim, rotating, paralist}
+\usepackage{caption, hanging}
+\usepackage{pstricks, sgamevar, egameps}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{ifvtex}
+\usepackage{lscape}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{longtable} 
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx} 
+\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+
+
+\title{Basics of Using \LaTeX and \textsf{R}}
+\author{Sarah B. Bouchat \\\\ Department of Political Science \\ University of Wisconsin--Madison}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Using texreg to Make Tables in \textsf{R}}
+\noindent \verb+texreg+ is a wrapper for a list of model objects you have already estimated in \textsf{R}. It automatically fills in the coefficients, standard errors, and significance for a wide range of model classes, and creates a nice-looking table that you can copy-paste from your \textsf{R} console directly into your \LaTeX document.\\
+
+\noindent How \verb+texreg+ works:\\
+\vspace{10pt}
+\verb+texreg(l, file = NA, single.row = FALSE, stars = c(0.001, +\\
+
+ \verb+   0.01, 0.05), custom.model.names = NULL, +\\
+ \verb+   custom.coef.names = NULL, custom.gof.names = NULL, +\\
+ \verb+   custom.note = NULL, digits = 2, leading.zero = TRUE, +\\
+ \verb+   symbol = "\\cdot", override.coef = 0, override.se = 0, +\\
+ \verb+   override.pval = 0, omit.coef = NA, reorder.coef = NULL, +\\
+\verb+    reorder.gof = NULL, return.string = FALSE, +\\
+\verb+    ci.force = FALSE, ci.force.level = 0.95, ci.test = 0, +\\
+ \verb+   bold = 0.00, center = TRUE, +\\
+\verb+    caption = "Statistical models", caption.above = FALSE, +\\
+\verb+    label = "table:coefficients", booktabs = FALSE, +\\
+\verb+    dcolumn = FALSE, sideways = FALSE, use.packages = TRUE, +\\
+ \verb+   table = TRUE, no.margin = TRUE, scriptsize = FALSE, +\\
+\verb+    float.pos = "", ...)+
+
+\newpage
+\subsection*{Examples}
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{l D{.}{.}{2.5}@{} D{.}{.}{2.5}@{} D{.}{.}{2.5}@{} }
+\hline
+           & \multicolumn{1}{c}{Dose Only} & \multicolumn{1}{c}{Supplement Only} & \multicolumn{1}{c}{W/ Interact} \\
+\hline
+Intercept  & 7.42^{***} & 20.66^{***} & 11.55^{***} \\
+           & (1.26)     & (1.37)      & (1.58)      \\
+Dose       & 9.76^{***} &             & 7.81^{***}  \\
+           & (0.95)     &             & (1.20)      \\
+Supplement &            & -3.70       & -8.26^{***} \\
+           &            & (1.93)      & (2.24)      \\
+Dose*Sup   &            &             & 3.90^{*}    \\
+           &            &             & (1.69)      \\
+\hline
+R$^2$      & 0.64       & 0.06        & 0.73        \\
+Adj. R$^2$ & 0.64       & 0.04        & 0.72        \\
+Num. obs.  & 60         & 60          & 60          \\
+\hline
+\multicolumn{4}{l}{\scriptsize{\textsuperscript{***}$p<0.001$, 
+  \textsuperscript{**}$p<0.01$, 
+  \textsuperscript{*}$p<0.05$}}
+\end{tabular}
+\caption{OLS Estimates}
+\label{table:coefficients}
+\end{center}
+\end{table}
+
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{l D{.}{.}{2.5}@{} D{.}{.}{2.5}@{} D{.}{.}{2.5}@{} }
+\toprule
+           & \multicolumn{1}{c}{Dose Only} & \multicolumn{1}{c}{Supplement Only} & \multicolumn{1}{c}{W/ Interact} \\
+\midrule
+Intercept  & 7.42^{***} & 20.66^{***} & 11.55^{***} \\
+           & (1.26)     & (1.37)      & (1.58)      \\
+Dose       & 9.76^{***} &             & 7.81^{***}  \\
+           & (0.95)     &             & (1.20)      \\
+Supplement &            & -3.70       & -8.26^{***} \\
+           &            & (1.93)      & (2.24)      \\
+Dose*Sup   &            &             & 3.90^{*}    \\
+           &            &             & (1.69)      \\
+\midrule
+R$^2$      & 0.64       & 0.06        & 0.73        \\
+Adj. R$^2$ & 0.64       & 0.04        & 0.72        \\
+Num. obs.  & 60         & 60          & 60          \\
+\bottomrule
+\multicolumn{4}{l}{\scriptsize{\textsuperscript{***}$p<0.001$, 
+  \textsuperscript{**}$p<0.01$, 
+  \textsuperscript{*}$p<0.05$}}
+\end{tabular}
+\caption{OLS Estimates, this time with booktabs!}
+\label{table:coefficients}
+\end{center}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{l D{.}{.}{2.5}@{} D{.}{.}{2.3}@{} D{.}{.}{2.5}@{} }
+\hline
+           & \multicolumn{1}{c}{Dose} & \multicolumn{1}{c}{Supplement} & \multicolumn{1}{c}{Interact} \\
+\hline
+Dose       & 9.76^{***} &        & 7.81^{***}  \\
+           & (0.95)     &        & (1.20)      \\
+Supplement &            & -3.70  & -8.26^{***} \\
+           &            & (1.93) & (2.24)      \\
+Dose*Sup   &            &        & 3.90^{*}    \\
+           &            &        & (1.69)      \\
+\hline
+R$^2$      & 0.64       & 0.06   & 0.73        \\
+Adj. R$^2$ & 0.64       & 0.04   & 0.72        \\
+Num. obs.  & 60         & 60     & 60          \\
+\hline
+\multicolumn{4}{l}{\scriptsize{\textsuperscript{***}$p<0.001$, 
+  \textsuperscript{**}$p<0.01$, 
+  \textsuperscript{*}$p<0.05$}}
+\end{tabular}
+\caption{OLS Estimates, but not the intercept!}
+\label{table:coefficients}
+\end{center}
+\end{table}
+
+\newpage
+
+\section*{stargazer for \LaTeX Tables}
+\noindent Another excellent package is \verb+stargazer+, which works with a wide (but still limited) number of model objects, notably a lot of GLMs. Check out its help file in \textsf{R} to find out which functions it's compatible with.\\
+
+\noindent How \verb+stargazer+ works:\\
+
+\verb+stargazer(  ..., +\\
+ \verb+           type = "latex", title = "", style = "default", +\\
+ \verb+           summary = TRUE, out = NULL,+\\
+ \verb+           column.labels = NULL, column.separate = NULL,+\\
+\verb+            covariate.labels = NULL, dep.var.caption = NULL,+\\
+\verb+            dep.var.labels = NULL, dep.var.labels.include = TRUE, +\\
+\verb+            align = FALSE, +\\
+\verb+            coef = NULL, se = NULL, t = NULL, p = NULL,+\\
+ \verb+           t.auto = TRUE, p.auto = TRUE,+\\
+\verb+            ci = FALSE, ci.custom = NULL,+\\
+\verb+            ci.level = 0.95, ci.separator = NULL,+\\
+\verb+            apply.coef = NULL, apply.se = NULL, +\\
+ \verb+           apply.t = NULL, apply.p = NULL, apply.ci = NULL,+\\
+ \verb+           column.sep.width = "5pt",+\\
+ \verb+           decimal.mark = NULL, digit.separate = NULL, +\\
+ \verb+           digit.separator = NULL,+\\
+ \verb+           digits = NULL, digits.extra = NULL,+\\
+ \verb+           float = TRUE, float.env="table",+\\
+ \verb+           font.size = NULL, header = TRUE,+\\
+ \verb+           initial.zero = NULL, +\\
+  \verb+          intercept.bottom = TRUE, intercept.top = FALSE, +\\
+\verb+            keep = NULL, keep.stat = NULL,+\\
+\verb+            label = "", model.names = NULL, model.numbers = NULL,+\\
+\verb+            no.space = NULL,+\\
+\verb+            notes = NULL, notes.align = NULL, +\\
+\verb+            notes.append = TRUE, notes.label = NULL, +\\
+\verb+            omit = NULL, omit.labels = NULL, +\\
+ \verb+           omit.stat = NULL, omit.yes.no = c("Yes", "No"), +\\
+\verb+            order = NULL, ord.intercepts = FALSE, perl = FALSE, +\\
+ \verb+           rq.se = "nid", selection.equation = FALSE, +\\
+\verb+            single.row = FALSE,+\\
+ \verb+           star.char = NULL, star.cutoffs = NULL, +\\
+ \verb+           suppress.errors = FALSE, table.placement = "!htbp", +\\
+ \verb+           zero.component = FALSE, summary.logical = TRUE, +\\
+  \verb+          nobs = TRUE, mean.sd = TRUE, min.max = TRUE,  +\\
+  \verb+          median = FALSE, iqr = FALSE ) +\\
+
+
+\subsection*{Example}
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{Tooth Length} \\ 
+ & \multicolumn{1}{c}{Dose Only} & \multicolumn{1}{c}{Supplement Only} & \multicolumn{1}{c}{w/Interact} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Dose & 9.764^{***} &  & 7.811^{***} \\ 
+  & (0.953) &  & (1.195) \\ 
+  & & & \\ 
+ Supplement &  & -3.700^{*} & -8.255^{***} \\ 
+  &  & (1.932) & (2.236) \\ 
+  & & & \\ 
+ Dose*Supplement &  &  & 3.904^{**} \\ 
+  &  &  & (1.691) \\ 
+  & & & \\ 
+ Intercept & 7.423^{***} & 20.663^{***} & 11.550^{***} \\ 
+  & (1.260) & (1.366) & (1.581) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{60} & \multicolumn{1}{c}{60} & \multicolumn{1}{c}{60} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.644} & \multicolumn{1}{c}{0.059} & \multicolumn{1}{c}{0.730} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.638} & \multicolumn{1}{c}{0.043} & \multicolumn{1}{c}{0.715} \\ 
+Residual Std. Error & \multicolumn{1}{c}{4.601 (df = 58)} & \multicolumn{1}{c}{7.482 (df = 58)} & \multicolumn{1}{c}{4.083 (df = 56)} \\ 
+F Statistic & \multicolumn{1}{c}{105.065$^{***}$ (df = 1; 58)} & \multicolumn{1}{c}{3.668$^{*}$ (df = 1; 58)} & \multicolumn{1}{c}{50.355$^{***}$ (df = 3; 56)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\normalsize 
+\end{tabular} 
+\end{table} 
+
+
+\end{document}

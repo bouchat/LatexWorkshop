@@ -1,0 +1,440 @@
+pd<-.45+.14+.03+.06+.12+.2
+pd
+p.pfc<-(.1*.45)/.1496
+p.pfc
+(.15*.14)/.1496
+(.12*.03)/.1496
+(.9*.06)/.1496
+(.05*.12)/.1496
+(.1*.2)/.1496
+plvhpos<-(.9*.1496)/.95
+plvhpos
+plvhpos<-(.9*.1496)/((.9*.1496)+(.05*(1-.1496))
+)
+plvhpos
+((.9*.1496)+(.05*(1-.1496)))
+.3008021*.759991
+.1403743*.759991
+.02406417*.759991
+.3609626*.759991
+.04019695*.759991
+.1336898*.759991
+220*(.5^9)*(.5^3) + (66)*(.5^10)*(.5^2) + 132*(.5^11)*(.5) + (.5^12)
+(.5^9)*(.5^3) + (.5^10)*(.5^2) + (.5^11)*(.5) + (.5^12)
+-9*220*(.5^8)*(.5^3)
+.1*(.5)^10 -(3/11)*(.5^11)+(.25)*(.5^12) + (1/13)*(.5^13)
+0^10
+(1/11)*(.5^11)-(1/6)*(.5^12)+(1/13)*(.5^13)
+(1/13)*(.5^13)
+(1/10)-(2/11)+(1/4)-(1/6)+(1/12)+(2/13)
+(1/12)*(.5^12)+(1/13)*(.5^13)
+(1/13)*(.5^13)
+.00003491382+.00001308912+.00002973508+.000009390024
+(1/10)-(3/11)+(1/4)+(1/13)
+1-.1541958
+?pbinom
+1-dbinom(12,9,.5)
+1-pbinom(12,9,.5)
+1-pbinom(9,12,.5)
+1-dbinom(9,12,.5)
+dbinom(9,12,.5)
+1+2+3+4+5+6+7+8+9+10
+(.5^18)*(.5^3)
+(.1^18)*(.9^3)
+(.2^18)*(.8^3)
+(.3^18)*(.7^3)
+(.4^18)*(.6^3)
+((.4^18)*(.6^3))*(4/55)
+(.3^18)*(.7^3)*(3/55)
+(.2^18)*(.8^3)*(2/55)
+(.1^18)*(.9^3)*(1/55)
+(4.77e-7)*(5/55)
+(6.5e-6)*(6/55)
+(4.4e-5)*(7/55)
+(1.44e-4)*(8/55)
+(1.5e-4)*(9/55)
+(1.325e-20 + 4.88e-15 + 7.25e-12 + 1.0795e-9 +4.336e-8 + 7.0909e-7 +5.6e-6 + 2.0945e-5 + 2.45e-5)
+1.36e-5/3.14e-5
+1.325e-20/5.179854e-5
+sum<-5.179854e-5
+4.88e-15/sum
+7.25e-12/sum
+1.0795e-9/sum
+4.336e-8/sum
+7.0909e-7/su
+7.0909e-7/sum
+5.6e-6/sum
+2.0945e-5/sum
+2.45e-5/sum
+1.5e-4*.435
+(1/11)*(.435)
+.9*.435
+.1*2.5579e-16
+.2*9.42e-11
+.3*1.3996e-7
+2.084e-5*.4
+.5*8.37089e-4
+.6*.013689
+.7*.10811
+.8*.404355
+.9*.4729863
+2.5579e-17+1.884e-11+4.1988e-08+8.336e-06+0.0004185445+0.0082134+0.075677+0.323484+0.4256877
+like<-c(0,7.29e-19,1.34e-13,1.33e-10,1.48e-8,4.77e-7,6.5e-6,4.4e-5,1.44e-4,1.5e-4,0)
+prior<-c(.01,.01,.01,.01, .01, .9, .01, .01, .01, .01, .01)
+like*prior
+sum(like*prior)
+sum<-sum(like*prior)
+post<-(like*prior)/sum
+post
+sum(post)
+theta<-c(0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1)
+theta*post
+sum(theta*post)
+.001/(.019+.127+.428+.435)
+5/11
+(6/11)/(5/11)
+2.5579e-16+9.42e-11+1.3996e-7+2.084e-5
++8.37089e-4
+.013689+.10811+.404355+.4729863
+1.881558e-15+3.458556e-10+3.432746e-7+3.819899e-5+1.108028e-1
+1.677658e-2+1.135645e-1+3.716657e-1+3.871518e-1
+.000837089/.9991403
+.1108413/.8891586
+5+4+3+2+1
+/55
+15/55
+6+7+8+9+10
+40/55
+.2727273/.7272727
+.9+(.01*5)
+.01*5
+.95/.05
+.00099/1.2
+.0008378093/.3750001
+.1246586/19
+(220*.00003491382)+(66*.00001308912)+(132*.00002973508)+(.000009390024)
+(1/11)-(1/6)+(1/13)
+(1/12)-(1/13)
+(1/13)
+-9*220*(.5^3)-3*(220)*.5*(.5^2)+660*(.5)*(.5^2)-(2*66)*(.5^2)*(.5)+(11*12)*(.5^2)*.5
+55*(.5^9)*(.5^3)+66*(.5^10)*(.5^3)+78*(.5^11)*(.5^3)+91*(.5^12)*(.5^3)
+55*(.5^9)*(.5^3)
+220*(.5^9)*(.5^3)
+t<-seq(0:10000)
+yt11<-(21/20)*(3^t)-(1/20)
+yt12<-(10/3)*(1/4)^t + (2/3)
+yt13<-(-10)*(-1)^t
+yt14<-(3/4)*(-1/3)^t + (1/4)
+yt15<-(3/14) + (67/14)*(-1)^t
+yt16<-10000*(.8^t) + 30000
+plot(yt11)
+library(foreign) #
+library(xtable)  #
+library(MASS) #
+library(boot)
+plot(yt11, ylim=c(0,10000), xlim=c(0,10000))
+plot(t, yt11, ylim=c(0,10000), xlim=c(0,10000))
+plot(t, yt11, ylim=c(-10000,10000), xlim=c(-10000,10000))
+plot(t, yt11, ylim=c(-10000,10000), xlim=c(-10000,10000), ylab="Y_t", xlab="Time")
+plot(t, yt11, ylim=c(-100,100), xlim=c(-100,100), ylab="Y_t", xlab="Time")
+plot(t, yt11, type=l, ylim=c(-100,100), xlim=c(-100,100), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(-100,100), xlim=c(-100,100), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,100), xlim=c(-100,100), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,100), xlim=c(-10,10), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,100), xlim=c(0,10), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,100), xlim=c(0,5), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,1000), xlim=c(0,5), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,1000), xlim=c(0,10), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,1000), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,1000), xlim=c(0,150), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,1000), xlim=c(0,50), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,10000), xlim=c(0,50), ylab="Y_t", xlab="Time")
+plot(t, yt11, type="l", ylim=c(0,10000), xlim=c(0,20), ylab="Y_t", xlab="Time")
+plot(t, yt12, type="l", ylim=c(0,10000), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt12, type="l", ylim=c(0,10), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt13, type="l", ylim=c(0,100), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt13, type="l", ylim=c(-100,100), xlim=c(0,1000), ylab="Y_t", xlab="Time")
+plot(t, yt13, type="l", ylim=c(-100,100), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt14, type="l", ylim=c(-100,100), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt14, type="l", ylim=c(-10,10), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt14, type="l", ylim=c(-1,1), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt14, type="l", ylim=c(-.5,.5), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt14, type="l", ylim=c(0,.5), xlim=c(0,10), ylab="Y_t", xlab="Time")
+plot(t, yt15, type="l", ylim=c(-10,10), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(-10,10), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(-100,100), xlim=c(0,1000), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(-1,1), xlim=c(0,10), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(-1,1), xlim=c(0,1), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(-100000,100000), xlim=c(0,100), ylab="Y_t", xlab="Time")
+plot(t, yt16, type="l", ylim=c(0,100000), xlim=c(0,100), ylab="Y_t", xlab="Time")
+install.packages("inline")
+install.packages("Rcpp")
+options(repos = c(getOption("repos"), rstan = "http://wiki.rstan-repo.googlecode.com/git/"))#
+install.packages('rstan', type = 'source')
+library(rstan)
+set_cppo("fast")
+install.packages("ts")
+install.packages("forecast")
+library(ts)
+install.packages("ts")
+library(ts)
+options(repos = c(getOption("repos"), rstan = "http://wiki.rstan-repo.googlecode.com/git/"))#
+install.packages('rstan', type = 'source')
+library(rstan)
+library(rstan)#
+set_cppo('fast')#
+detach("package:rstan", unload = TRUE)#
+remove.packages('rstan')
+set_cppo("fast")
+install.packages("inline", type="source")
+install.packages("Rcpp", type="source")
+library(inline) #
+library(Rcpp)#
+src <- ' #
+  std::vector<std::string> s; #
+  s.push_back("hello");#
+  s.push_back("world");#
+  return Rcpp::wrap(s);#
+'#
+hellofun <- cxxfunction(body = src, includes = '', plugin = 'Rcpp', verbose = FALSE)#
+cat(hellofun(), '\n')
+if (!file.exists("~/.R/Makevars")) {#
+  cat('CXX=xcrun g++ -arch x86_64 -ftemplate-depth-256 -stdlib=libstdc++\n#
+       CXXFLAGS="-mtune=native  -O3 -Wall -pedantic -Wconversion"\n', #
+       file="~/.R/Makevars");#
+} else {#
+   file.show("~/.R/Makevars");#
+}
+options(repos = c(getOption("repos"), rstan = "http://wiki.rstan-repo.googlecode.com/git/"))#
+install.packages('rstan', type = 'source')
+factorial(3)
+choose(3,2)
+choose(2,1)
+factorial(20)/factorial(16)
+choose(20,4)
+library(foreign)#
+ms<-read.table("/Users/sbouchat/Downloads/msrepl87.asc", header=TRUE)#
+attributes(ms)#
+summary(ms)
+log.like<-function(par,X,Y){#
+Y<-as.vector(y)#
+X<-as.matrix(x)#
+xbeta<-X%*%par[1:K]#
+sigma<-sqrt(1/(n-K)*sum((y-xbeta)^2))#
+             # this ancillary parameter is known in this didactic example#
+      # sum(-(1/2)*log(2*pi)-n*log(sigma)-(1/(2*sigma^2))*(y-xbeta)^2)#
+             # different but equivalent#
+       sum(-(1/2)*log(2*pi)-(1/2)*log(sigma^2)-(1/(2*sigma^2))*(y-xbeta)^2)#
+             # taken from King, pages 65, equation 4.8#
+}
+seq1<- -100:100/1#
+seq2<- -100:100/1#
+likeli<-matrix(rep(NA,length(seq1)*length(seq2)),ncol=length(seq1))#
+for(i in 1:length(seq1)){#
+	for(j in 1:length(seq2)){#
+		likeli[i,j]<-log.like(c(seq1[i],seq2[j]),x,y)}}#
+#
+persp(seq1,seq2,likeli,main="Log Likelihood Plot", xlim=c(-100,100), col="gray", ylim=c(-100,100), theta=45, xlab="Intercept",ylab="Coefficient",zlab="Likelihood", lty=2)
+x1.holder<- -5:1/1
+x1.holder
+x.squared<-function(x){x^2+4}#
+# min at 4, argmin = 0#
+minimum<-optimize(x.squared,interval=c(-1,1))#
+maximum<-optimize(x.squared, interval=c(-1,1), maximum=TRUE)#
+#By default optimize finds a minimum; only works in univariate case#
+#
+minimum#
+# min = argmin#
+# objective = minimum#
+maximum#
+# As soon as optimize finds a single maximum, it stops, so don't do this to find multiple critical points. This function, for example, has 2.#
+#
+curve(x.squared,xlim=c(-1,1), ylab=expression(f(x)),main=expression(f(x)==x^2))#
+abline(v=minimum$min, col="blue")#
+abline(v=maximum$max,col="green")
+?persp
+x1.holder<- -5:1/1#
+x2.holder<- -5:5/1#
+# making lattices ourselves#
+# /1 is in increments of 1#
+#
+y<-outer(x1.holder,x2.holder,fun.for.plotting)#
+persp(x1.holder,x2.holder,y,main=expression(f(x[1],x[2])==3*x[1]^2 -x[2]^2+1), theta=0, xlab=expression(x[1]),ylab=expression(x[2]),zlab=expression(f(x)))
+x1.holder<- -5:1/1#
+x2.holder<- -5:5/1#
+# making lattices ourselves#
+# /1 is in increments of 1#
+#
+y<-outer(x1.holder,x2.holder,fun.for.plotting)#
+persp(x1.holder,x2.holder,main=expression(f(x[1],x[2])==3*x[1]^2 -x[2]^2+1), theta=0, xlab=expression(x[1]),ylab=expression(x[2]),zlab=expression(f(x)))
+Adding.sqr<-function(x){#
+	x1<-x[1]#
+	x2<-x[2]#
+	3*x1^2+x2^2+1#
+}#
+#
+#what does this look like?#
+fun.for.plotting<-function(x1,x2){#
+	3*x1^2+x2^2+1#
+}#
+#
+x1.holder<- -5:1/1#
+x2.holder<- -5:5/1
+y<-outer(x1.holder,x2.holder,fun.for.plotting)#
+persp(x1.holder,x2.holder,y,main=expression(f(x[1],x[2])==3*x[1]^2 -x[2]^2+1), theta=0, xlab=expression(x[1]),ylab=expression(x[2]),zlab=expression(f(x)))
+min.x1.x2<-optim(c(1,1),fn=Adding.sqr)#
+min.x1.x2
+neg.Add.sqr<-function(x){#
+	x1<-x[1]#
+	x2<-x[2]#
+	-1*(3*x1+x2^2+1)#
+}#
+#
+max.x1.x2<-optim(c(1,1),fn=neg.Add.sqr)#
+max.x1.x2
+help(optim)
+?with
+cox.data<-read.dta("/Users/sbouchat/Downloads/coxappend.dta")#
+attach(cox.data)#
+ols<-lm(ml~enpv,data=cox.data)#
+detach(cox.data)#
+summary(ols)#
+#
+new.data<-data.frame(y=cox.data$ml,x=cox.data$enpv)#
+sum.of.square.errors<-function(data,parameters){#
+	with(data,sum((parameters[1]+parameters[2]*x-y)^2))#
+}
+library(foreign)
+cox.data<-read.dta("/Users/sbouchat/Downloads/coxappend.dta")#
+attach(cox.data)#
+ols<-lm(ml~enpv,data=cox.data)#
+detach(cox.data)#
+summary(ols)
+new.data<-data.frame(y=cox.data$ml,x=cox.data$enpv)#
+sum.of.square.errors<-function(data,parameters){#
+	with(data,sum((parameters[1]+parameters[2]*x-y)^2))#
+}
+find.min.RSS<-optim(par=c(0,1),sum.of.square.errors,data=new.data)#
+find.min.RSS
+plot(y~x,data=new.data)#
+abline(a=find.min.RSS$par[1],b=find.min.RSS$par[2],col="green")
+choose(10,7)
+10^7
+7920000/(10^7)
+choose(52,5)
+3744/2598960
+6/4165
+x<-choose(4,3)
+y<-choose(4,2)
+13*x*12*y
+3744/(choose(52,5))
+26/2598960
+1/108290
+(x*y)/(choose(52,5))
+x
+y
+24/2598960
+8*10^2
+8*(10^6-10^4)
+attach(ToothGrowth)#
+length.dose.reg<-lm(len~dose)#
+length.supp.reg<-lm(len~supp)#
+length.int.reg<-lm(len~dose+sup+dose*supp)
+length.int.reg<-lm(len~dose+supp+dose*supp)
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose","Supplement", "Interact"))
+library(texreg)
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose","Supplement", "Interact"))
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose","Supplement", "Interact"))
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose","Supplement", "Interact"),#
+	   booktabs=TRUE)
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"))#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, this time with booktabs!",#
+	   	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"),#
+	   	   booktabs=TRUE)#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, but not the intercept!",#
+	   	   custom.coef.names=c("Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Dose","Supplement", "Interact"),#
+			  omit.coef=c("Intercept"))
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"))#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, this time with booktabs!",#
+	   	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"),#
+	   	   booktabs=TRUE)#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, but not the intercept!",#
+	   	   custom.coef.names=c("Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Intercept","Dose","Supplement", "Interact"),#
+			  omit.coef=c("Intercept"))
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"))#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, this time with booktabs!",#
+	   	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"),#
+	   	   booktabs=TRUE)#
+	   texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+	          caption="OLS Estimates, but not the intercept!",#
+	   	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+	          dcolumn=TRUE,#
+	          custom.model.names=c("Dose","Supplement", "Interact"),#
+			  omit.coef=c("Intercept"))
+?stargazer
+library(stargazer)
+?stargazer
+stargazer(length.dose.reg, length.supp.reg, length.int.reg, align=TRUE)
+stargazer(length.dose.reg, length.supp.reg, length.int.reg, align=TRUE, column.labels=c("Dose Only", "Supplement Only", "w/Interact"), covariate.labels=c("Dose","Supplement","Dose*Supplement", "Intercept"))
+stargazer(length.dose.reg, length.supp.reg, length.int.reg, align=TRUE, column.labels=c("Dose Only", "Supplement Only", "w/Interact"), covariate.labels=c("Dose","Supplement","Dose*Supplement", "Intercept"), dep.var.labels=c("Tooth Length"))
+library(foreign) #
+library(xtable)  #
+library(MASS) #
+library(boot)#
+library(arm)#
+library(texreg)#
+library(stargazer)
+setwd('/Users/sbouchat/LatexWorkshop/Tables from STATA and R')
+attach(ToothGrowth)#
+length.dose.reg<-lm(len~dose)#
+length.supp.reg<-lm(len~supp)#
+length.int.reg<-lm(len~dose+supp+dose*supp)
+setwd('/Users/sbouchat/LatexWorkshop/Tables from STATA and R')
+texreg(list(length.dose.reg, length.supp.reg, length.int.reg),#
+       caption="OLS Estimates",#
+	   custom.coef.names=c("Intercept","Dose", "Supplement", "Dose*Sup"),#
+       dcolumn=TRUE,#
+       custom.model.names=c("Dose Only","Supplement Only", "W/ Interact"))

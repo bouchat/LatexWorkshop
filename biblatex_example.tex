@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{parskip}
+\usepackage[colorlinks=true,citecolor=black,linkcolor=black,urlcolor=blue]{hyperref}
+\usepackage[small,compact]{titlesec}
+\usepackage[authordate,backend=biber]{biblatex-chicago}
+\usepackage[margin=1in]{geometry}
+\addbibresource{example_bibliography.bib}
+
+\fancyhf{}
+\fancyhead[RO]{\LaTeX workshop 2014\\Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\title{Using biblatex to manage citations}
+\author{Nathaniel Olin}
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+
+\section{Why use a citation manager?}
+
+There are a number of reasons why using \verb+biblatex+ (or \verb+bibtex+) to manage your citations is an excellent idea.
+\begin{enumerate}
+	\item You will save huge amounts of time formatting your bibliography.
+	\item You can easily switch bibliographic styles without editing all of your citations.
+	\item You will make fewer mistakes spelling names, article titles, or formatting the document.
+\end{enumerate}
+
+\section{Getting started}
+
+There are some start-up costs to using bibLaTeX, but don't be demoralized if you run into trouble. Once set up, it's definitely worth it!
+
+\subsection{What do you need (outside of the document)?}
+
+In order to manage your citations with \LaTeX, you will need either the \verb+bibLaTeX+ or \verb+bibTeX+ package. There are small differences in citation commands, but both work with \LaTeX. I will be using (and recommend!) \verb+bibLaTeX+, because it incorporates the most recent edition of the Chicago manual of style.
+
+For Chicago citations---the standard for the social sciences---the package for bibLaTeX is \verb+bibLaTeX-chicago+.
+
+The second thing you will want is a {\em citation manager}. There are a number of options available; I will be using \href{http://jabref.sourceforge.net}{JabRef}. JabRef is open source, free, and has both PC and Mac support. Other options include Mendeley (both Mac and PC) and BibDesk (Mac only). 
+
+There are many options, with different strengths and weaknesses. I prefer JabRef because it's free, customizable, and works with \verb+bibLaTeX+. Mendeley is slightly more user-friendly, but only supports \verb+bibTeX+.
+
+\subsection{Setting things up}
+
+In order to use \verb+bibLaTeX+, you first need to install the program \href{http://biblatex-biber.sourceforge.net/}{Biber}, which is necessary for bibLaTeX to run. once installed, 
+
+You will also want to install your citation manager, and create your .bib file.\footnote{You can technically keep and edit your .bib file by hand in any text editor. However, this is {\em not} recommended. You will probably go crazy. But it can be done.} For JabRef, this means selecting File--New Database.
+
+Next, you will want to enter your citations into the citation manager. For JabRef, that's BibTeX--New Entry, or the green $+$ sign on the menu bar. You can select from a number of options, including
+\begin{itemize}
+	\item Article (what you will be using most often)
+	\item Book
+	\item Incollection (for chapters of edited volumes)
+	\item Online (for webpages; I use this for news articles)
+\end{itemize}
+and so on. Most of these are self-explanatory.
+
+Your new citation will appear in the citation list, and you can select it, hit ``enter,'' and start entering information (author, year, title, etc). 
+
+Note that there are tabs across the top of the data entry area. There will be many more fields than you will want to use! If you want to limit or consolidate these, you can customize them by going to Options--Customize Entry Types. You can then set what fields appear in what tabs for any given kind of citation. 
+
+(For example, if I select "article" on the right, I've listed author, year, title, journaltitle, volume, number, and pages as my required fields, and left nothing under Optional fields. I like to keep things as clean as possible.)
+
+The most important field is the "Bibtexkey" field. This is where you give the citation a unique entry, which you will use while writing the document. So if Genghis Khan wrote an article in 1972, you might use Khan1972 as the identifier. (Note that JabRef can automatically generate bibtex keys, in which case it will use the LastnameYear format, appending ``a'' or ``b'' (etc) for duplicates).
+
+Finally, you will want to save the .bib file in the same directory as your .tex file. This .bib file is your bibliography; JabRef is just a way to edit it. If you decide to change managers at some point, you will use the same .bib file. JabRef can manage as many .bib files as you want.
+
+\subsection{Using bibLaTeX in-document}
+
+The first step is to include the \verb+biblatex-chicago+ package in the preamble, and specify the type of citation style you will be using: notes, or author-date. To use the standard author-date style, you would write:
+
+\verb+\usepackage[authordate,backend=biber]{biblatex-chicago}+
+
+If you wanted to use the ``notes'' style instead, you would change \verb+authordate+ to \verb+notes+. There are many other optional arguments you can include between the square brackets. For example, including \verb+doi=false+ will suppress the ``digital object identifier.'' Most of the time this isn't a problem, but if you're using something like Mendeley, it might pull those in automatically, and they clutter things up. Similarly, \verb+isbn=false+ suppresses ISBN numbers, and so on. A full list of optional arguments is in the \verb+bibLaTeX+ documentation.
+
+Next, still in the preamble, you need to point bibLaTeX at your bibliography. In this case, it looks like:
+
+\verb+\addbibresource{example_bibliography.bib}+
+
+Finally, in the document, you can print your bibliography by writing
+
+\verb+\printbibliography+
+
+Now all we have to do is cite things!
+
+\section{Citation commands}
+\subsection{Basic citation}
+There are a number of different citation commands depending on what you're trying to do. All of them will use the bibtex key that corresponds to the work you want to reference. Anything you cite in your document will be automatically included in your bibliography.
+\begin{itemize}
+	\item The most basic (which you probably won't use) is \verb+\cite{}+, which produces a citation like this: \cite{Khan1972}. 
+	\item More likely, you will want parentheses around your citation. To do that, you can use the command \verb+\parencite{}+, which renders as \parencite{Khan1972}.
+	\item Sometimes you want to reference the author directly in your sentence: ``for example, \textcite{Khan1972} argues forcefully that \ldots'' You can do this using \verb+\textcite{}+, which renders as \textcite{Khan1972}.
+	\item If you want to use a footnote instead, you can use \verb+\footcite{}+, which renders like this.\footcite{Khan1972}
+	\item The full citation will be included in the bibliography, but if you want to include it elsewhere, you can use \verb+\fullcite{}+ to display it in full: \fullcite{Khan1972}.
+	\item You can also do this in footnotes, using \verb+\footfullcite+, like so.\footfullcite{Khan1972}
+\end{itemize}
+You can include more than one reference by adding another bibtex key, separated with a comma, like so: \verb+\parencite{Khan1972,Victoria2012}+ renders as \parencite{Khan1972,Victoria2012}. This works for any citation command.
+
+\subsection{Page numbers and other embellishments}
+
+If you're citing a specific page number or a range of pages, you can add this as an optional argument in any of these citation commands. 
+
+For parencite, you can write \verb+\parencite[23]{Khan1972}+, which renders as \parencite[23]{Khan1972}.  You can actually put anything in those square brackets, not just numbers (although most of the time it will be numbers): \verb+\parencite[fun stuff]{Bonaparte1923}+ renders as \parencite[fun stuff]{Bonaparte1923}.
+
+Sometimes you will want to include something {\em before} the citation. This is usually something like ``e.g.'' or ``see also'' or ``as demolished in,'' etc. In order to do this you include two square brackets, and put the pre-citation text in the first one.
+
+\verb+\parencite[e.g.][]{Khan1972}+ renders as \parencite[e.g.][]{Khan1972}
+
+You can give both pre- and post-citation text:
+
+\verb+\parencite[e.g.][23--25]{Victoria2012}+ renders as \parencite[e.g.][23--25]{Victoria2012}
+
+What if you want to cite more than one thing (normally done with \verb+\parencite{x,y}+), but you want to do different page numbers for both of them? Well, first of all, you're lying; that basically never happens. But I HAVE AN ANSWER ANYWAY: Use \verb+parencites{}+ or its equivalent (e.g. \verb+footcites{}+, \verb+textcites{}+, etc).
+
+So \verb+\parencites[23]{Khan1972}[44]{Caesar1991}+ will render as \parencites[23]{Khan1972}[44]{Caesar1991}.
+
+Keep in mind you can use these embellishments for any citation command!
+
+\subsection{Note: repeated citations and page numbers}
+
+Note that if I keep citing the same thing with page numbers \parencite[32]{Khan1972}, the subsequent citations will suppress the author name \parencite[55]{Khan1972}, because \verb+biblatex+ figures that you're just repeatedly quoting passages of the same thing and the reader doesn't need to be reminded repeatedly of the author name \parencite[102]{Khan1972}. If I include another citation, though \parencite[2--3]{Caesar1991}, and then go back to the old one \parencite[200]{Khan1972}, it will print the author's name again.
+
+\section{Example}
+
+When writing in the social sciences, it is always important to cite your sources \parencite{Khan1972}. You might even want to cite more than one source \parencite{Khan1972,Caesar1991}. 
+
+Perhaps you want to cite a page number in a source \parencite[23]{Bonaparte1923}, or a range of page numbers \parencite[23--42]{Victoria2012}. Maybe you want to do page numbers for multiple citations \parencites[23]{Khan1972}[44]{Caesar1991}. You might want to say something before the citation \parencite[for example,][]{Khan1972}, or do that with page numbers \parencite[for example,][22]{Caesar1991}. 
+
+You can also cite things in footnotes,\footcite{Khan1972} with all the same variants.\footcites[Also see][33]{Bonaparte1923}[42]{Victoria2012}
+
+Finally, you might want to give something in text, talking about the work of \textcite{Khan1972}, or give it by itself: \cite{Caesar1991}. You can even give the full citation in text, e.g.: \fullcite{Victoria2012}. You can also give it in a footnote.\footfullcite{Bonaparte1923}
+
+\printbibliography
+
+
+\end{document}

@@ -1,7 +1,7 @@
 #Sarah Bouchat
 #Texreg Example
 #Latex Workshop 2
-#24 September 2014
+#7 October 2015
 
 #Some packages you might need depending on your model
 

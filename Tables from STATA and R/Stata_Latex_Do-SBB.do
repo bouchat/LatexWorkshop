@@ -1,7 +1,7 @@
 /*
 Using LaTeX and Stata 
 Sarah B. Bouchat
-24 September 2014
+7 October 2015
 Thanks to Simon Haeder and the internet for basically all of this
 */
 

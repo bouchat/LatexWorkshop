@@ -1,0 +1,579 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{multirow, multicol}
+\usepackage{epsfig, subfigure, subfloat, graphicx}
+\usepackage{anysize, indentfirst, setspace}
+\usepackage{verbatim, rotating, paralist}
+\usepackage{caption, hanging}
+\usepackage{pstricks, sgamevar, egameps}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{ifvtex}
+\usepackage{lscape}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{longtable} 
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx} 
+\usepackage{epstopdf}
+
+\title{Using \LaTeX and Stata I\thanks{Please note: Most of the command descriptions are taken from the respective STATA help files. The \LaTeX examples presented were not reformatted and present the output from the respective commands.}}
+\author{Simon F. Haeder \\\\ Department of Political Science \\ University of Wisconsin--Madison}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{outtex}
+
+
+\noindent \textbf{outtex} generates \LaTeX code for results tables after any estimation command used in STATA. If file(string) is specified, the code is written to the specified file. Otherwise, the code is displayed in the command window.
+
+
+\subsection{Examples}
+. outtex
+
+%------- Begin LaTeX code -------%
+
+{
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l c c }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & {\textbf{Coefficient}}  & \textbf{(Std. Err.)} \\ \hline
+headroom  &  -615.694  & (298.734)\\
+trunk  &  -11.802  & (83.448)\\
+weight  &  3.781  & (0.929)\\
+foreign  &  3654.777  & (671.866)\\
+mpg  &  14.432  & (78.544)\\
+Intercept  &  -4641.084  & (3624.259)\\
+\hline
+\end{tabular}
+\end{table}
+}
+
+%------- End LaTeX code -------%
+
+
+. outtex, detail
+
+%------- Begin LaTeX code -------%
+
+{
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l c c }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & {\textbf{Coefficient}}  & \textbf{(Std. Err.)} \\ \hline
+headroom  &  -615.694  & (298.734)\\
+trunk  &  -11.802  & (83.448)\\
+weight  &  3.781  & (0.929)\\
+foreign  &  3654.777  & (671.866)\\
+mpg  &  14.432  & (78.544)\\
+Intercept  &  -4641.084  & (3624.259)\\
+\hline
+\multicolumn{3}{c}{}\\
+\hline N & \multicolumn{2}{c}{74}\\
+R$^{2}$ & \multicolumn{2}{c}{0.526}\\
+F $ _{(5,68)}$ & \multicolumn{2}{c}{13.75}\\
+\hline
+\end{tabular}
+\end{table}
+}
+
+%------- End LaTeX code -------%
+\newpage
+. outtex, detail level below
+
+%------- Begin LaTeX code -------%
+
+{
+\def\sep{0.5em}
+\def\fns{\footnotesize}
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{3}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l r @{} l }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & \textbf{Coefficient} \\& \fns{(Std. Err.)} \\ \hline
+headroom & -615.694&\fivepc \\ & \fns{(298.734)} &\\[\sep]
+trunk & -11.802& \\ & \fns{(83.448)} &\\[\sep]
+weight & 3.781&\onepc \\ & \fns{(0.929)} &\\[\sep]
+Intercept & -4641.084& \\ & \fns{(3624.259)} &\\[\sep]
+\hline
+\multicolumn{3}{c}{}\\
+\hline N & \multicolumn{2}{c}{74}\\
+R$^{2}$ & \multicolumn{2}{c}{0.526}\\
+F $ _{(5,68)}$ & \multicolumn{2}{c}{13.75}\\
+\hline
+\end{tabular}
+\end{table}
+}
+
+%------- End LaTeX code -------%
+
+. outtex, detail level below digits (5) legend
+
+%------- Begin LaTeX code -------%
+
+{
+\def\sep{0.5em}
+\def\fns{\footnotesize}
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{3}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l r @{} l }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & \textbf{Coefficient} \\& \fns{(Std. Err.)} \\ \hline
+headroom & -615.69445&\fivepc \\ & \fns{(298.73381)} &\\[\sep]
+trunk & -11.80202& \\ & \fns{(83.44773)} &\\[\sep]
+weight & 3.78137&\onepc \\ & \fns{(0.92917)} &\\[\sep]
+foreign & 3654.77717&\onepc \\ & \fns{(671.86643)} &\\[\sep]
+Intercept & -4641.08359& \\ & \fns{(3624.25921)} &\\[\sep]
+\hline
+\multicolumn{3}{c}{}\\
+\hline N & \multicolumn{2}{c}{74}\\
+R$^{2}$ & \multicolumn{2}{c}{0.52558}\\
+F $ _{(5,68)}$ & \multicolumn{2}{c}{13.75031}\\
+\hline
+\legend
+\end{tabular}
+\end{table}
+}
+
+%------- End LaTeX code -------%
+\newpage
+. outtex, detail level below digits (5) legend label nopar
+
+%------- Begin LaTeX code -------%
+
+{
+\def\sep{0.5em}
+\def\fns{\footnotesize}
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{3}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l r @{} l }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & \textbf{Coefficient} \\& \fns{Std. Err.} \\ \hline
+Headroom (in.) & -615.69445&\fivepc \\ & \fns{298.73381} &\\[\sep]
+Trunk space (cu. ft.) & -11.80202& \\ & \fns{83.44773} &\\[\sep]
+Weight (lbs.) & 3.78137&\onepc \\ & \fns{0.92917} &\\[\sep]
+Car type & 3654.77717&\onepc \\ & \fns{671.86643} &\\[\sep]
+Intercept & -4641.08359& \\ & \fns{3624.25921} &\\[\sep]
+\hline
+\multicolumn{3}{c}{}\\
+\hline N & \multicolumn{2}{c}{74}\\
+R$^{2}$ & \multicolumn{2}{c}{0.52558}\\
+F $ _{(5,68)}$ & \multicolumn{2}{c}{13.75031}\\
+\hline
+\legend
+\end{tabular}
+\end{table}
+}
+
+%------- End LaTeX code -------%
+
+. outtex, detail level below digits (5) legend label nopar title(Auto Results) long
+
+%------- Begin LaTeX code -------%
+
+{
+\def\sep{0.5em}
+\def\fns{\footnotesize}
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{3}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+\begin{center}
+\begin{longtable}{l r @{} l }
+\caption{Auto Results\label{tabresult regress}}\\
+\hline\hline\multicolumn{1}{c}{\textbf{Variable}}
+ & \textbf{Coefficient} \\*& \fns{Std. Err.} \\ \hline
+\endfirsthead
+\multicolumn{3}{l}{\emph{... table \thetable{} continued}}
+\\ \hline\hline\multicolumn{1}{c}{\textbf{Variable}}
+ & \textbf{Coefficient} \\*& \fns{Std. Err.} \\ \hline
+\endhead
+\hline
+\multicolumn{3}{r}{\emph{Continued on next page...}}\\
+\endfoot
+\endlastfoot
+Headroom (in.) & -1954.67326& \\* & \fns{0.00000} &\\[\sep]
+Trunk space (cu. ft.) & -105.83518& \\* & \fns{0.00000} &\\[\sep]
+Weight (lbs.) & 5.06937& \\* & \fns{0.00000} &\\[\sep]
+Car type & 7041.34842& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 8.89811& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 0.00000& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -457.30627& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 2253.28778& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 501.75605& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -494.59230& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 93.21473& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 3551.12175& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 1845.04314& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 1963.62380& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 4738.46477& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -1114.64237& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 4100.17592& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -206.56377& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 4144.59991& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 8038.74966& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 6110.56818& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 3082.92246& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 1691.19753& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 1727.34302& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -913.27667& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -937.98783& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -485.64473& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -4565.25110& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -3348.74357& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -3101.56270& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -2407.47010& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 2625.15888& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 117.13864& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 2010.93487& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 3149.00297& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -2250.78207& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 3798.65059& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 433.14861& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -998.67920& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & -1398.59070& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 923.35352& \\* & \fns{0.00000} &\\[\sep]
+Mileage (mpg) & 1250.66337& \\* & \fns{0.00000} &\\[\sep]
+Intercept & -4899.12890& \\* & \fns{0.00000} &\\[\sep]
+\hline
+\multicolumn{3}{c}{}\\
+\hline N & \multicolumn{2}{c}{74}\\
+R$^{2}$ & \multicolumn{2}{c}{01}\\
+\hline
+\legend
+\end{longtable}
+\end{center}
+}
+
+%------- End LaTeX code -------%
+
+
+\section{outtable}
+
+\noindent \textbf{outtable} automates the conversion of a STATA matrix to a \LaTeX table, written to an external file. The table is presented with row and column names taken from the specified matrix.  Thus, one need only generate the appropriate matrix using standard STATA commands. By default, only the lower triangle of a symmetric matrix will be written, as inferred by STATA's issym() function. The using clause is required, and must specify the name of a file to which the \LaTeX table is to be written, without the .tex extension. If the file exists, either the replace option or the append option must be specified. The mat qualifier specifies the name of the existing matrix which is to be written in tabular form.\\
+
+
+
+\subsection{Examples}
+{
+\begin{table}[htbp]\centering
+ \caption{Estimation results : regress
+\label{tabresult regress}}
+\begin{tabular}{l c c }\hline\hline
+\multicolumn{1}{c}
+{\textbf{Variable}}
+ & {\textbf{Coefficient}}  & \textbf{(Std. Err.)} \\ \hline
+headroom  &  -615.694  & (298.734)\\
+trunk  &  -11.802  & (83.448)\\
+weight  &  3.781  & (0.929)\\
+foreign  &  3654.777  & (671.866)\\
+mpg  &  14.432  & (78.544)\\
+Intercept  &  -4641.084  & (3624.259)\\
+\hline
+\end{tabular}
+\end{table}
+}
+
+
+. outtable using table1, mat(var)
+\begin{table}[htbp]
+\begin{tabular}{|l|l|l|l|l|l|l|}\hline
+ & headroom  & trunk  & weight  & foreign  & mpg  & cons  \\ \hline
+headroom & 89241.892 \\ \hline
+trunk & -9051.8182 & 6963.5229 \\ \hline
+weight & -.01509157 & -54.674469 & .86335694 \\ \hline
+foreign & 16858.189 & -20568.959 & 364.95446 & 451404.5 \\ \hline
+mpg & -1561.2622 & -1431.1221 & 48.811531 & 7625.2183 & 6169.1287 \\ \hline
+cons & -112756.91 & 125475.69 & -2926.9435 & -1160516.4 & -255423.09 & 13135255 \\ \hline
+  \end{tabular}
+\end{table}
+
+. outtable using table1, mat(var) cap(Variance-Covariance Matrix) nobox append
+\begin{table}[htbp]
+\caption{\label{clabel} Variance-Covariance Matrix}\centering\medskip
+\begin{tabular}{lllllll} \hline \hline
+ & headroom  & trunk  & weight  & foreign  & mpg  & cons  \\  \hline
+headroom & 89241.892 \\
+trunk & -9051.8182 & 6963.5229 \\
+weight & -.01509157 & -54.674469 & .86335694 \\
+foreign & 16858.189 & -20568.959 & 364.95446 & 451404.5 \\
+mpg & -1561.2622 & -1431.1221 & 48.811531 & 7625.2183 & 6169.1287 \\
+cons & -112756.91 & 125475.69 & -2926.9435 & -1160516.4 & -255423.09 & 13135255 \\
+\hline \hline \end{tabular}
+\end{table}
+
+
+
+\section{sutex}
+
+\noindent \textbf{sutex} generates \LaTeX code for summary statistics tables. If file(string) is specified, the code is written to the specified file (if replace is not specified, then the code is appended to the existing file, if any). Otherwise, the code is displayed in the output window. When longtable is selected, and if you \verb+ \usepackage{longtable}+ in the preamble of your \LaTeX document, tables can span over several pages.\\
+
+\newpage
+\subsection{Examples}
+. sutex
+%------- Begin LaTeX code -------%
+
+\begin{table}[htbp]\centering \caption{Summary statistics \label{sumstat}}
+\begin{tabular}{l c c  c}\hline\hline
+\multicolumn{1}{c}{\textbf{Variable}} & \textbf{Mean}
+ & \textbf{Std. Dev.} & \textbf{N}\\ \hline
+price & 6165.257 & 2949.496  & 74\\
+mpg & 21.297 & 5.786  & 74\\
+rep78 & 3.406 & 0.99  & 69\\
+headroom & 2.993 & 0.846  & 74\\
+trunk & 13.757 & 4.277  & 74\\
+weight & 3019.459 & 777.194  & 74\\
+length & 187.932 & 22.266  & 74\\
+turn & 39.649 & 4.399  & 74\\
+displacement & 197.297 & 91.837  & 74\\
+gear\_ratio & 3.015 & 0.456  & 74\\
+foreign & 0.297 & 0.46  & 74\\
+make2 & 37.5 & 21.506  & 74\\
+\hline
+\end{tabular}
+\end{table}
+%------- End LaTeX code -------%
+
+
+. sutex, minmax nobs par labels
+%------- Begin LaTeX code -------%
+
+\begin{table}[htbp]\centering \caption{Summary statistics \label{sumstat}}
+\begin{tabular}{l c c c c c}\hline\hline
+\multicolumn{1}{c}{\textbf{Variable}} & \textbf{Mean}
+ & \textbf{(Std. Dev.)}& \textbf{Min.} &  \textbf{Max.} & \textbf{N}\\ \hline
+Price & 6165.257 & (2949.496) & 3291 & 15906 & 74\\
+Mileage (mpg) & 21.297 & (5.786) & 12 & 41 & 74\\
+Repair Record 1978 & 3.406 & (0.99) & 1 & 5 & 69\\
+Headroom (in.) & 2.993 & (0.846) & 1.5 & 5 & 74\\
+Trunk space (cu. ft.) & 13.757 & (4.277) & 5 & 23 & 74\\
+Weight (lbs.) & 3019.459 & (777.194) & 1760 & 4840 & 74\\
+Length (in.) & 187.932 & (22.266) & 142 & 233 & 74\\
+Turn Circle (ft.) & 39.649 & (4.399) & 31 & 51 & 74\\
+Displacement (cu. in.) & 197.297 & (91.837) & 79 & 425 & 74\\
+Gear Ratio & 3.015 & (0.456) & 2.19 & 3.89 & 74\\
+Car type & 0.297 & (0.46) & 0 & 1 & 74\\
+Make and Model & 37.5 & (21.506) & 1 & 74 & 74\\
+\hline
+\end{tabular}
+\end{table}
+%------- End LaTeX code -------%
+
+
+\section{graph2tex}
+\noindent \textbf{graph2tex} takes the most recently created graph and exports it as a .eps file; it displays \LaTeX code you could insert for displaying the figure in your LaTeX document. Note that you need to have the \verb+ \usepackage{epstopdf}+ in the preamble of your \LaTeX document.
+
+\newpage
+\subsection{Examples}
+
+. graph2tex, epsfile(auto1) number reset
+% exported graph to auto11.eps
+\begin{figure}[h]
+\begin{centering}
+  \includegraphics[height=2in]{auto11}
+\end{centering}
+\end{figure}
+
+
+
+. graph2tex, epsfile(auto2) number
+% exported graph to auto22.eps
+\begin{figure}[h]
+\begin{centering}
+  \includegraphics[height=2in]{auto22}
+\end{centering}
+\end{figure}
+
+
+
+\section{latab}
+
+\noindent \textbf{latab} tabulates the varlist (max of 2 variables) and produces a display with \LaTeX code embedded in the output. The user may then copy from this display (or copy from a log file) and paste into a \LaTeX document. In addition, the user may also send the output to a file which can be read into a \LaTeX document when it is compiled. latab is a companion program to latabstat which produces \LaTeX output from tabstat.\\
+
+\subsection{Example}
+\begin{table}[htbp]\centering
+\caption{\label{freq_foreign}
+\textbf{Car type}}
+\begin{tabular} {@{} l r r @{}} \\ \hline
+Item& Number & Per cent \\
+\hline
+Domestic&     52.0&     70.3\\
+Foreign&     22.0&     29.7\\
+Total&     74.0&    100.0\\
+\hline
+\multicolumn{3}{@{}l}{}
+\end{tabular}
+\end{table}
+
+
+\section{latabstat}
+
+\noindent \textbf{latabstat} is a modification of tabstat which produces a display with \LaTeX code embedded in the output. The user may then copy from this display (or copy from a log file) and paste into a \LaTeX document. In addition, the user may also send the output to a file which can be read into a \LaTeX document when it is compiled. latabstat is a companion program to latab which produces \LaTeX output from tabulate. latabstat is used in exactly the same way as tabstat, but with some additional options. See -help tabstat- for information on the usage of tabstat and its normal options.\\
+
+
+
+\subsection{Example}
+. latabstat length weight
+\begin{table}[htbp]\centering
+\caption{\label{}
+\textbf{Auto} }\begin{tabular} {@{} l r r @{}} \\ \hline
+\textbf{ foreign } & \textbf{    length} & \textbf{    weight} \\
+\hline
+Domestic  &   196.1346 &   3317.115 \\
+          &   20.04605 &   695.3637 \\
+          &        147 &       1800 \\
+          &        233 &       4840 \\
+          &         52 &         52 \\
+          &         86 &       3040 \\
+          &  -.4450463 &    -.24371 \\
+ Foreign  &   168.5455 &   2315.909 \\
+          &   13.68255 &   433.0035 \\
+          &        142 &       1760 \\
+          &        193 &       3420 \\
+          &         22 &         22 \\
+          &         51 &       1660 \\
+          &   .0809646 &   1.056582 \\
+   Total  &   187.9324 &   3019.459 \\
+          &   22.26634 &   777.1936 \\
+          &        142 &       1760 \\
+          &        233 &       4840 \\
+          &         74 &         74 \\
+          &         91 &       3080 \\
+          &  -.0409746 &   .1481164 \\
+\hline
+\multicolumn{3}{@{}l}{
+\footnotesize{}}
+\end{tabular}
+\end{table}
+
+\section{listtab}
+
+\noindent \textbf{listtab} lists the variables in the varlist (or all variables, if the varlist is absent) to the STATA log, or to a file (or files) specified by using, appendto() or handle(), in a table format, with one table row per observation and the values of different variables separated by a delimiter string.  Optionally, the user may specify a list of header lines before the data rows and/or a list of footer lines after the data rows.  The log or output file can then be cut and pasted, or linked or embedded (e.g. with the \LaTeX input command), into a \LaTeX, HTML or word processor table.  Values of numeric variables are output according to their display formats or value labels (if non-missing), or as the missing value string specified by missnum() (if missing).\\
+
+\subsection{Example}
+\begin{table}[htbp]\centering
+\caption{\label{}
+\textbf{Auto} }\begin{tabular} {@{} l r r @{}} \\ \hline
+\textbf{ foreign } & \textbf{    length} & \textbf{    weight} \\
+\hline
+Merc. Zephyr&Domestic&2,830\\
+Chev. Chevette&Domestic&2,110\\
+Chev. Monza&Domestic&2,750\\
+Toyota Corolla&Foreign&2,200\\
+Subaru&Foreign&2,050\\
+\hline
+\multicolumn{3}{@{}l}{
+\footnotesize{}}
+\end{tabular}
+\end{table}
+
+\section{corrtex}
+\noindent \textbf{corrtex} produces a correlation table in \LaTeX format.  This command is inspired by mktab and outreg commands, and its code heavily borrows from mkcorr and sutex commands.  This command offers a number of advantages such as allowing the use of labels, controlling the number of decimal places used, and other \LaTeX specific formatting options.\\
+
+
+\subsection{Example}
+.  corrtex price foreign mpg if price $>$ 5000, file(2)
+\begin{table}[htbp]\centering \caption{Cross-correlation table\label{corrtable}}
+\begin{tabular}{l  c  c }\hline\hline
+\multicolumn{1}{c}{Variables} &Price&Mileage (mpg)\\ \hline
+Price&1.000\\
+Mileage (mpg)&-0.388&1.000\\
+\hline \hline
+ \end{tabular}
+\end{table}
+
+\section{estout}
+
+\noindent \textbf{estout} assembles a table of coefficients, "significance stars", summary statistics, standard errors, t- or z-statistics, p-values, confidence intervals, and other statistics for one or more models previously fitted and stored by estimates store or eststo.  It then displays the table in STATA's results window or writes it to a text file.\\
+
+\newpage
+
+\subsection{Examples}
+
+\noindent . eststo: quietly regress price weight mpg\\
+. estadd vif\\
+. esttab using example.tex, aux(vif 2) wide nopar append\\
+
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{1}{cc}}
+\hline\hline
+            &\multicolumn{2}{c}{(1)}           \\
+            &\multicolumn{2}{c}{price}         \\
+\hline
+weight      &       1.747\sym{**} &        2.87\\
+mpg         &      -49.51         &        2.87\\
+\_cons      &      1946.1         &            \\
+\hline
+\(N\)       &          74         &            \\
+\hline\hline
+\multicolumn{3}{l}{\footnotesize vif in second column}\\
+\multicolumn{3}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}
+
+\vspace{1in}
+
+\noindent . eststo: quietly regress price weight mpg\\
+. eststo: quietly regress price weight mpg foreign\\
+. esttab using example.tex,stats(r2 bic N) label nostar title(Regression table\label{tab1})\\
+
+\begin{table}[htbp]\centering \caption{Regression table\label{tab1}} \begin{tabular}{l*{2}{c}} \hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+                    &\multicolumn{1}{c}{Price}&\multicolumn{1}{c}{Price}\\
+\hline
+Weight (lbs.)       &       1.747&       3.465\\
+                    &      (2.72)&      (5.49)\\
+[1em]
+Mileage (mpg)       &      -49.51&       21.85\\
+                    &     (-0.57)&      (0.29)\\
+[1em]
+Car type            &            &      3673.1\\
+                    &            &      (5.37)\\
+[1em]
+Constant            &      1946.1&     -5853.7\\
+                    &      (0.54)&     (-1.73)\\
+\hline
+r2                  &       0.293&       0.500\\
+bic                 &      1378.6&      1357.4\\
+N                   &          74&          74\\
+\hline\hline
+\multicolumn{3}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\end{tabular}
+\end{table}
+
+
+
+
+
+\end{document}
